@@ -80,7 +80,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Pixels of the North</h1>
-        <img src={"/avatar.png"} className="App-logo" alt="logo" />
+        <img id={"logo"} src={"/avatar.png"} className="App-logo" alt="logo" />
         <p>{`${gameList.length} games spread out on ${
           systemKeys().length
         } different systems!`}</p>

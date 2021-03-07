@@ -4,15 +4,18 @@
 
 .App-logo {
   height: 40vmin;
-  pointer-events: none;
+  pointer-events: all;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 5s linear;
-    position: relative;
-  }
+/* @media (prefers-reduced-motion: no-preference) { */
+.App-logo {
+  /* animation: App-logo-spin infinite 5s linear; */
+  position: relative;
 }
+.App-logo.cheat-code {
+  animation: App-logo-spin infinite 0.5s linear;
+}
+/* } */
 
 .App-header {
   background-color: #282c34;
@@ -23,7 +26,7 @@
   justify-content: center;
   font-size: calc(6px + 2vmin);
   color: white;
-  font-family: "PressStart", "VT323", monospace;
+  font-family: "PressStart", monospace;
 }
 
 .App-link {
