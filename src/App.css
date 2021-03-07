@@ -9,7 +9,8 @@
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+    animation: App-logo-spin infinite 5s linear;
+    position: relative;
   }
 }
 
@@ -20,8 +21,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(6px + 2vmin);
   color: white;
+  font-family: "PressStart", "VT323", monospace;
 }
 
 .App-link {
@@ -37,10 +39,23 @@ label {
 }
 
 @keyframes App-logo-spin {
-  from {
+  0% {
     transform: rotate(0deg);
+    bottom: 0;
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    transform: rotate(-10deg);
+    bottom: 30px;
+  }
+  50% {
+    transform: rotate(0deg);
+    bottom: 0;
+  }
+  75% {
+    transform: rotate(10deg);
+    bottom: 30px;
+  }
+  100% {
+    bottom: 0;
   }
 }

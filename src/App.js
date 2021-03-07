@@ -79,10 +79,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>{`Total games: ${gameList.length} on ${
+        <h1>Pixels of the North</h1>
+        <img src={"/avatar.png"} className="App-logo" alt="logo" />
+        <p>{`${gameList.length} games spread out on ${
           systemKeys().length
-        } number of systems`}</p>
+        } different systems!`}</p>
       </header>
       <div>
         {systemKeys()
