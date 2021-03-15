@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { useEffect, useState } from "react";
 import Papa from "papaparse";
@@ -6,7 +5,7 @@ import Papa from "papaparse";
 function App() {
   const [gameList, setGameList] = useState([]);
   const [selectedSystems, setSelectedSystems] = useState([]);
-
+  const [randomGame, setRandomGame] = useState(null);
   useEffect(() => {
     Papa.parse("/data/game-list.csv", {
       download: true,
@@ -73,7 +72,9 @@ function App() {
 
     const randomIndex = Math.floor(Math.random() * filteredGames.length);
     const randomGame = filteredGames[randomIndex];
-    alert(`${randomGame["Title"]} (${randomGame["Platform"]})`);
+
+    setRandomGame(`${randomGame["Title"]} (${randomGame["Platform"]})`);
+    //alert(`${randomGame["Title"]} (${randomGame["Platform"]})`);
   };
 
   return (
@@ -84,6 +85,9 @@ function App() {
         <p>{`${gameList.length} games spread out on ${
           systemKeys().length
         } different systems!`}</p>
+        <button className="random-button" onClick={randomPick}>
+          RANDOMIZE!
+        </button>
       </header>
       <div>
         {systemKeys()
@@ -114,6 +118,19 @@ function App() {
         <button onClick={deselectAll}>Deselect all</button>
         <button onClick={randomPick}>Random pick</button>
       </div>
+
+      {randomGame && (
+        <div
+          className="game-overlay"
+          onClick={() => {
+            setRandomGame(null);
+          }}
+        >
+          <div className="game-popup">
+            <p className="game-title">{randomGame}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
